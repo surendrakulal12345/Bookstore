@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "authors",
+  "info": {
+    "name": "Authors",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Authorname": {
+      "type": "string",
+      "unique": true,
+      "components": ["id","Authorname"]
+    },
+    "books": {
+      "collection": "books",
+      "via": "authors",
+      "dominant": true
+    }
+  }
+}

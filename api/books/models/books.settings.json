@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "name": "books",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Booktitle": {
+      "type": "string",
+      "unique": true
+    },
+    "Bookcontent": {
+      "type": "richtext"
+    },
+    "Bookimage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "categories": {
+      "via": "books",
+      "collection": "categories"
+    },
+    "authors": {
+      "via": "books",
+      "collection": "authors"
+    }
+  }
+}
